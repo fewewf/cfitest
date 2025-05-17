@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     for ip in ips:
         try:
-            x = requests.get(url='http://' + ip + '/cdn-cgi/trace', headers=header, timeout=1)
+            x = requests.get(url='http://' + ip + '/cdn-cgi/trace', headers=header, timeout=3)
             result = result + ip + ' ' + re.findall('colo=[A-Z]{3}', x.text)[0] + '\n'
         except requests.exceptions.RequestException as e:
             result = result + ip + ' timeout' + '\n'
